@@ -34,4 +34,32 @@ const myFunction=function(){
     
 }
 
-console.log(typeof myFunction);
+// console.log(typeof myFunction);
+
+
+//================================================================================================
+
+//Stack (Primitive)         and Heap(Non_primitive)
+
+let myTeam="Vikings"
+let newTeam=myTeam
+
+// console.log(myTeam);
+// // newTeam="spartans"
+
+// console.log(newTeam);//different answer because it make changes in copied file
+
+
+
+let nameOne={
+    name:"Ankuj",
+    email:"akj@akj.com"
+}
+
+let nameTwo=nameOne
+
+console.log(nameTwo);
+
+nameTwo.email="naya@hai"
+console.log(nameOne);
+console.log(nameTwo);//both will give same value as it change in same file
