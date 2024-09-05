@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Async </title>
+</head>
+<body>
+    <h1>Learning Java Script</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setTimeout(function(){
+    //     console.log("Anand");
+        
+    // },200)
+
+
+    // const sayMyName=function(){
+    //     console.log("Anand");
+        
+    // }
+    // setTimeout(sayMyName,2000)
+
+    const printAnand=function(){
+        document.querySelector('h1').innerHTML="Anand"
+        console.log("REPLACED ");
+        
+    }
+    const refTO=setTimeout(printAnand,2000)
+    
+    // const reset=clearTimeout(refTO)
+    document.querySelector('#stop').addEventListener('click',function(e){
+        clearTimeout(refTO);
+        console.log("STOPPED");
+        
+    })
+    
+</script>
+</html>

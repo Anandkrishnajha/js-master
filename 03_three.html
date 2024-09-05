@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Change statement</title>
+
+</head>
+
+<body>
+    <h1>Ek Chakke ne world cup nhi jitaya</h1>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+</body>
+<script>
+    //    setInterval(function(){
+    //     console.log("Gambair said",Date.now());
+
+    //    },1000)
+
+    // const controState=function(){
+    //     console.log("Dhoni Finished");
+
+    // }
+    // setInterval(controState,1000)
+
+    // const controState = function (str) {
+    //     console.log(`"Dhoni Finished", ${str}, Date.now()`);
+    // }
+
+
+
+
+    //Proj idea
+    let intervelID;
+    const existH2=document.querySelector('h2')
+    const kaho = function(){
+        document.querySelector('h1').textContent="Dhoni won the world"
+        
+        if(!existH2){
+            const change=document.createElement('h2')
+        change.innerHTML="Dhoni Finishes thing off in style"
+       
+        document.body.appendChild(change)
+        }
+       
+    }
+    
+
+    const start=document.querySelector('#start').addEventListener('click',function(e){
+        intervelID=setInterval(kaho, 1000)
+        // console.log("starts");
+        
+        
+    })
+
+    const stop=document.querySelector('#stop').addEventListener('click',function(e){
+        clearInterval(intervelID)
+        console.log("ends");
+        
+        
+    })
+
+    
+
+    
+
+    
+
+    
+
+    // clearInterval(indervelID)
+
+
+
+</script>
+
+</html>

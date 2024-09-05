@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html events</title>
+</head>
+
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop"
+                    src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="photoshop"></li>
+            <li><img width="200px" id="japan"
+                    src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="river"
+                    src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="prayer"
+                    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+
+</body>
+<script>
+    // document.getElementById('owl').onclick=function(){
+    //     alert("own clicked")
+    // }
+
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     alert("own clicked ")
+    // })
+
+    /*
+    previously used
+    --attachEvent()
+    --jQuery-on
+    */
+
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log(e);
+
+    // })
+
+    /*
+    Learn about
+    type, timestamp,defaultPrevented
+    target,toElement,srcElement,currentTarget
+    altKey,ctrlKey,shiftKey,keyCode
+    */
+
+
+    /*
+    Event Propogation is of two type one is default -Event Bubbling:which selects eveything from inside to outside ((){},false)
+                                        Not Default-Event Capturing:which selects eveything from outside to inside (({},true))
+
+                                       
+    */
+    document.getElementById('images').addEventListener('click', function (e) {
+        console.log("clicked inside the ul");
+
+    }, false)
+
+    document.getElementById('owl').addEventListener('click', function (e) {
+        console.log("cowl clicked");
+        // e.stopPropagation()---simply if we want to stop this printing we can add stop propogation
+    }, false)
+    //so here as it is default so first owl will print then image will in case of true or event captureing it will be vise versa
+
+
+    //PreventDefault::It is used in preventing default things
+    //Suppose we have a google link and we want to stop to render on google site after clicking it
+    document.getElementById('google').addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation
+        console.log("Google clicked");
+
+    })
+
+
+
+
+    //working on a task:suppowe if we want to remove the clicked image
+    // document.querySelector('#images').addEventListener('click',function(e){
+    //     console.log(e.target.parentNode);
+    //     let removeIt=e.target.parentNode
+    //     // removeIt.remove(); or
+    //     removeIt.parentNode.removeChild(removeIt)
+
+    // })   
+
+    //if we want to make our task more strict
+    document.querySelector('#images').addEventListener('click', function (e) {
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove();
+        }
+
+
+
+    })
+
+
+
+</script>
+
+</html>
